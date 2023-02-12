@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>SubTask List</h1>
+  <ul>
+    {% for subtask in subtasks %}
+      <li><a href="{% url 'tasks:subtask_detail' subtask.pk %}">{{ subtask.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>SubTask Detail</h1>
+  <p>Name: {{ subtask.name }}</p>
+  <p>Content: {{ subtask.content }}</p>
+  <p>Start Date: {{ subtask.start_date }}</p>
+  <p>Deadline: {{ subtask.deadline }}</p>
+  <p>Deadline Date: {{ subtask.deadline_date }}</p>
+  <p>Task: <a href="{% url 'tasks:task_detail' subtask.task.pk %}">{{ subtask.task.name }}</a></p>
+{% endblock %}

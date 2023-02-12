@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="card" style="width: 18rem">
+  <div class="card-body">
+    <h5 class="card-title">{{ task.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+      Deadline: {{ subtask.deadline }}
+    </h6>
+    <p class="card-text">{{ task.content }}</p>
+    {% if task.deadline %}
+    <p>Deadline Date: {{ task.deadline_date }}</p>
+    {% endif %}
+    <p>
+      <a
+        class="btn btn-primary"
+        data-bs-toggle="collapse"
+        href="#multiCollapseExample1"
+        role="button"
+        aria-expanded="false"
+        aria-controls="multiCollapseExample1"
+        >Subtasks</a
+      >
+    </p>
+    <div class="row">
+      <div class="col">
+        {% for subtask in subtasks %}
+        <div class="collapse multi-collapse" id="multiCollapseExample1">
+          <h5 class="card-title">{{ subtask.name }}</h5>
+          <div class="card card-body">{{ subtask.content }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content%}
